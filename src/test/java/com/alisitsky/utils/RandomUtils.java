@@ -36,7 +36,7 @@ public class RandomUtils {
     }
 
     public static String getRandomPhoneNumber() {
-        return faker.phoneNumber().cellPhone().replaceAll("[.\\s()-]", "").substring(0,10);
+        return faker.phoneNumber().cellPhone().replaceAll("[.\\s()-]", "").substring(0, 10);
     }
 
     public static String getYearFromBirthDate(String dateString) {
@@ -52,8 +52,7 @@ public class RandomUtils {
             String monthName = monthFullNameFormat.format(inputDate);
 
             return monthName;
-        }
-        catch (ParseException e) {
+        } catch (ParseException e) {
             e.printStackTrace();
             return null;
         }
@@ -75,7 +74,7 @@ public class RandomUtils {
             Field field = registrationPageData.getClass().getDeclaredField(citiesArrayFieldName);
             field.setAccessible(true);
             String[] citiesArray = (String[]) field.get(registrationPageData);
-            stateAndCityMap.put(states[i-1], citiesArray);
+            stateAndCityMap.put(states[i - 1], citiesArray);
         }
         return stateAndCityMap;
     }

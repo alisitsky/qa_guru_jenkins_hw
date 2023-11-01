@@ -2,6 +2,7 @@ package com.alisitsky.pages;
 
 import com.codeborne.selenide.SelenideElement;
 import com.alisitsky.pages.components.CalendarComponent;
+
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byText;
@@ -32,7 +33,7 @@ public class RegistrationPage {
             genderLine = $$("div.table-responsive table tbody tr").findBy(text("Gender")),
             mobileLine = $$("div.table-responsive table tbody tr").findBy(text("Mobile")),
             dateOfBirthLine = $$("div.table-responsive table tbody tr").findBy(text("Date of Birth")),
-            subjectsLine =  $$("div.table-responsive table tbody tr").findBy(text("Subjects")),
+            subjectsLine = $$("div.table-responsive table tbody tr").findBy(text("Subjects")),
             hobbiesLine = $$("div.table-responsive table tbody tr").findBy(text("Hobbies")),
             pictureLine = $$("div.table-responsive table tbody tr").findBy(text("Picture")),
             addressLine = $$("div.table-responsive table tbody tr").findBy(text("Address")),
@@ -75,32 +76,32 @@ public class RegistrationPage {
         return this;
     }
 
-    public RegistrationPage setPhoneNumber(String value){
+    public RegistrationPage setPhoneNumber(String value) {
         phoneNumberInput.setValue(value);
         return this;
     }
 
-    public RegistrationPage setSubject(String value){
+    public RegistrationPage setSubject(String value) {
         subjectInput.setValue(value).pressEnter();
         return this;
     }
 
-    public RegistrationPage setHobbie(String value){
+    public RegistrationPage setHobbie(String value) {
         hobbiesCheckBoxes.$(byText(value)).click();
         return this;
     }
 
-    public RegistrationPage uploadPicture(String value){
+    public RegistrationPage uploadPicture(String value) {
         uploadPictureInput.uploadFromClasspath(value);
         return this;
     }
 
-    public RegistrationPage setCurrentAddress(String value){
+    public RegistrationPage setCurrentAddress(String value) {
         currentAddressInput.setValue(value);
         return this;
     }
 
-    public RegistrationPage setStateAndCity(String state, String city){
+    public RegistrationPage setStateAndCity(String state, String city) {
         stateInput.click();
         stateCityDropDown.$(byText(state)).click();
         cityInput.click();
@@ -108,7 +109,7 @@ public class RegistrationPage {
         return this;
     }
 
-    public RegistrationPage submitButtonClick(){
+    public RegistrationPage submitButtonClick() {
         submitButton.scrollTo().click();
         return this;
     }

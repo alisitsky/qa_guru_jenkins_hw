@@ -4,7 +4,7 @@ public class RegistrationPageData {
 
     public static String[]
             genders = {"Male", "Female", "Other"},
-            subjects = {"Hindi", "English", "Maths", "Physics", "Chemistry", "Biology", "Computer Science", "Commerce", "Accounting", "Economics", "Arts", "Social Studies", "History", "Civics" },
+            subjects = {"Hindi", "English", "Maths", "Physics", "Chemistry", "Biology", "Computer Science", "Commerce", "Accounting", "Economics", "Arts", "Social Studies", "History", "Civics"},
             hobbies = {"Sports", "Reading", "Music"},
             states = {"NCR", "Uttar Pradesh", "Haryana", "Rajasthan"},
             citiesForState1 = {"Delhi", "Gurgaon", "Noida"},

@@ -36,10 +36,10 @@ public class TestBase {
 
     @AfterEach
     void afterEach() {
-        attachment("Source", webdriver().driver().source());
-        attachments.takeScreenshot();
-        Attachments.browserConsoleLogs();
-        Attachments.addVideo();
-        closeWebDriver();
+//        attachment("Source", webdriver().driver().source());
+//        attachments.takeScreenshot();
+//        Attachments.browserConsoleLogs();
+//        Attachments.addVideo();
+//        closeWebDriver();
     }
 }

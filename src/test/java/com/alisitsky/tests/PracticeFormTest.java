@@ -2,9 +2,14 @@ package com.alisitsky.tests;
 
 import com.alisitsky.pages.RegistrationPage;
 import com.github.javafaker.Faker;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import static com.alisitsky.utils.RandomUtils.*;
+import static com.codeborne.selenide.Selenide.closeWebDriver;
+import static com.codeborne.selenide.Selenide.webdriver;
+import static io.qameta.allure.Allure.attachment;
 import static io.qameta.allure.Allure.step;
 
 public class PracticeFormTest extends TestBase {
@@ -13,6 +18,13 @@ public class PracticeFormTest extends TestBase {
     Faker faker = new Faker();
 
     @Test
+    @Tag("temp")
+    public void tempTest(){
+        Assertions.assertTrue(2 > 1);
+    }
+
+    @Test
+    @Tag("remote")
     public void fillFormsAndSubmitWithPageObjectsTest() throws NoSuchFieldException, IllegalAccessException {
         Attachments attachments = new Attachments();
 
@@ -74,6 +86,13 @@ public class PracticeFormTest extends TestBase {
                     .checkPictureValueVisible(pictureFileName)
                     .checkAddressValueVisible(userAddress)
                     .checkStateAndCityValueVisible(userState, userCity);
+
+            ///////// temporary from afterEach:
+            attachment("Source", webdriver().driver().source());
+            attachments.takeScreenshot();
+            Attachments.browserConsoleLogs();
+            Attachments.addVideo();
+            closeWebDriver();
         });
     }
 }

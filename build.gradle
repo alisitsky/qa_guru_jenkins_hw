@@ -40,12 +40,6 @@ test {
     useJUnitPlatform()
 }
 
-task temp_test(type: Test) {
-    useJUnitPlatform{
-        includeTags("temp")
-    }
-}
-
 task remote_test(type: Test) {
     useJUnitPlatform{
         includeTags("remote")

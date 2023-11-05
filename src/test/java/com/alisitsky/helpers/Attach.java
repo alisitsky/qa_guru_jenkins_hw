@@ -1,24 +1,27 @@
-package com.alisitsky.tests;
+package com.alisitsky.helpers;
 
-import com.codeborne.selenide.WebDriverRunner;
+import com.codeborne.selenide.Selenide;
 import io.qameta.allure.Attachment;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
-import com.codeborne.selenide.Selenide;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.nio.charset.StandardCharsets;
 
 import static com.codeborne.selenide.Selenide.sessionId;
-import static java.lang.String.format;
+import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 import static org.openqa.selenium.logging.LogType.BROWSER;
 
+public class Attach {
+    @Attachment(value = "{attachName}", type = "image/png")
+    public static byte[] screenshotAs(String attachName) {
+        return ((TakesScreenshot) getWebDriver()).getScreenshotAs(OutputType.BYTES);
+    }
 
-public class Attachments {
-
-    @Attachment(value = "Screenshot", type = "image/png", fileExtension = "png")
-    public byte[] takeScreenshot() {
-        return ((TakesScreenshot) WebDriverRunner.getWebDriver()).getScreenshotAs(OutputType.BYTES);
+    @Attachment(value = "Page source", type = "text/plain")
+    public static byte[] pageSource() {
+        return getWebDriver().getPageSource().getBytes(StandardCharsets.UTF_8);
     }
 
     @Attachment(value = "{attachName}", type = "text/plain")
@@ -41,8 +44,7 @@ public class Attachments {
     }
 
     public static URL getVideoUrl() {
-        String webDriver = System.getProperty("webDriver");
-        String videoUrl = format("%svideo/" + sessionId() + ".mp4", webDriver);
+        String videoUrl = "https://selenoid.autotests.cloud/video/" + sessionId() + ".mp4";
         try {
             return new URL(videoUrl);
         } catch (MalformedURLException e) {

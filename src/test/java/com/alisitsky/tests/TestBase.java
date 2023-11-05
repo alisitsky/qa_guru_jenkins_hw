@@ -1,5 +1,6 @@
 package com.alisitsky.tests;
 
+import com.alisitsky.helpers.Attach;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.selenide.AllureSelenide;
@@ -10,18 +11,14 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import java.util.Map;
 
 import static com.codeborne.selenide.Selenide.*;
-import static io.qameta.allure.Allure.attachment;
 
 public class TestBase {
-
-    Attachments attachments = new Attachments();
 
     @BeforeAll
     static void beforeAll() {
         Configuration.browserSize = "1920x1080";
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.pageLoadStrategy = "eager";
-
         Configuration.holdBrowserOpen = true;
         Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
         DesiredCapabilities capabilities = new DesiredCapabilities();
@@ -39,10 +36,10 @@ public class TestBase {
 
     @AfterEach
     void afterEach() {
-//        attachment("Source", webdriver().driver().source());
-//        attachments.takeScreenshot();
-//        Attachments.browserConsoleLogs();
-//        Attachments.addVideo();
-//        closeWebDriver();
+        Attach.screenshotAs("Last screenshot");
+        Attach.pageSource();
+        Attach.browserConsoleLogs();
+        Attach.addVideo();
+        closeWebDriver();
     }
 }

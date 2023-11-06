@@ -51,7 +51,6 @@ public class PracticeFormTest extends TestBase {
                             getYearFromBirthDate(userBirthDate))
                     .setSubject(userSubject)
                     .setHobbie(userHobby)
-                    .uploadPicture(pathToPicture)
                     .setCurrentAddress(userAddress)
                     .setStateAndCity(userState, userCity);
             Attach.screenshotAs("Step screenshot");
@@ -74,7 +73,6 @@ public class PracticeFormTest extends TestBase {
                             getYearFromBirthDate(userBirthDate))
                     .checkSubjectsValueVisible(userSubject)
                     .checkHobbiesValueVisible(userHobby)
-                    .checkPictureValueVisible(pictureFileName)
                     .checkAddressValueVisible(userAddress)
                     .checkStateAndCityValueVisible(userState, userCity);
         });

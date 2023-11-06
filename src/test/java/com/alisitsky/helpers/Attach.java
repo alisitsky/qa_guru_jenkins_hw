@@ -46,7 +46,7 @@ public class Attach {
     }
 
     public static URL getVideoUrl() {
-        String remoteBrowserUrl = System.getProperty("remoteBrowserUrl", "1selenoid.autotests.cloud");
+        String remoteBrowserUrl = System.getProperty("1remoteBrowserUrl", "1selenoid.autotests.cloud");
         String videoUrl = "https://"+ remoteBrowserUrl + "/video/" + sessionId() + ".mp4";
         try {
             return new URL(videoUrl);

@@ -21,7 +21,7 @@ public class TestBase {
         Configuration.pageLoadStrategy = "eager";
         Configuration.holdBrowserOpen = false;
 
-        String remoteBrowserUrl = System.getProperty("REMOTE_BROWSER_URL", "selenoid.autotests.cloud");
+        String remoteBrowserUrl = System.getProperty("REMOTE_BROWSER_URL", "1selenoid.autotests.cloud");
         Configuration.remote = "https://user1:1234@" + remoteBrowserUrl + "/wd/hub";
 
         DesiredCapabilities capabilities = new DesiredCapabilities();

@@ -14,7 +14,7 @@ import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 import static org.openqa.selenium.logging.LogType.BROWSER;
 
 public class Attach {
-
+    static String remoteBrowserUrl = System.getProperty("remoteBrowserUrl", "selenoid.autotests.cloud");
 
     @Attachment(value = "{attachName}", type = "image/png")
     public static byte[] screenshotAs(String attachName) {
@@ -46,7 +46,6 @@ public class Attach {
     }
 
     public static URL getVideoUrl() {
-        String remoteBrowserUrl = System.getProperty("remoteBrowserUrl", "selenoid.autotests.cloud");
         String videoUrl = "https://"+ remoteBrowserUrl + "/video/" + sessionId() + ".mp4";
         try {
             return new URL(videoUrl);
